@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JTextPane;
+import javax.xml.transform.OutputKeys;
 /**
  *
  * @author Orthus
@@ -242,6 +243,7 @@ public class main extends javax.swing.JFrame {
             TransformerFactory.newInstance();
             Transformer transformer =
             transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
             StreamResult result =
             new StreamResult(new File("players/" + PlayID+".xml"));
